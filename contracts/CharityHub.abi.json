@@ -1,0 +1,588 @@
+[
+  {
+    "inputs": [],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "activityId",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "campaignId",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "actor",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint8",
+        "name": "kind",
+        "type": "uint8"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "timestamp",
+        "type": "uint256"
+      }
+    ],
+    "name": "ActivityRecorded",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "campaignId",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "beneficiary",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "title",
+        "type": "string"
+      }
+    ],
+    "name": "CampaignCreated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "campaignId",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "paused",
+        "type": "bool"
+      }
+    ],
+    "name": "CampaignPauseChanged",
+    "type": "event"
+  },
+  {
+    "stateMutability": "payable",
+    "type": "fallback"
+  },
+  {
+    "inputs": [],
+    "name": "APP_ID",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "MAX_DONATION",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "description",
+        "type": "string"
+      },
+      {
+        "internalType": "address payable",
+        "name": "beneficiary",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "goal",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "durationDays",
+        "type": "uint256"
+      }
+    ],
+    "name": "createCampaign",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      }
+    ],
+    "name": "donate",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "donatedTo",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "donationCount",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "donorCount",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "donorTotal",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "getActivityCount",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      }
+    ],
+    "name": "getCampaign",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "title",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "description",
+            "type": "string"
+          },
+          {
+            "internalType": "address payable",
+            "name": "beneficiary",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "goal",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "raised",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "withdrawn",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "donationCount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "deadline",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "paused",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct CharityHub.Campaign",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getCampaigns",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "title",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "description",
+            "type": "string"
+          },
+          {
+            "internalType": "address payable",
+            "name": "beneficiary",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "goal",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "raised",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "withdrawn",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "donationCount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "deadline",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "paused",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct CharityHub.Campaign[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "cursor",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "limit",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "getHistory",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "campaignId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "actor",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint8",
+            "name": "kind",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint256",
+            "name": "timestamp",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "blockNumber",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct CharityHub.Activity[]",
+        "name": "records",
+        "type": "tuple[]"
+      },
+      {
+        "internalType": "uint256",
+        "name": "nextCursor",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "hasMore",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getOverview",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "administrator",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "campaignCount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "donated",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "withdrawn",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "contributions",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "activityCount",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "paused",
+        "type": "bool"
+      }
+    ],
+    "name": "setPaused",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "totalDonated",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "totalWithdrawn",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      }
+    ],
+    "name": "withdraw",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "stateMutability": "payable",
+    "type": "receive"
+  }
+]

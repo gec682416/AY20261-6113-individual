@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: common-good-charity
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT --threads 4 --timeout 60 app:app
+    healthCheckPath: /healthz
+    envVars:
+      - key: CONTRACT_ADDRESS
+        sync: false
+      - key: RPC_URLS
+        value: https://ethereum-sepolia-rpc.publicnode.com,https://sepolia.gateway.tenderly.co

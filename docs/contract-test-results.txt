@@ -1,0 +1,105 @@
+
+> common-good-charity-dapp@1.0.0 test
+> node --test tests/*.test.mjs
+
+TAP version 13
+# This version of µWS is not compatible with your Node.js build:
+# Error: Cannot find module '../binaries/uws_darwin_arm64_127.node'
+# Require stack:
+# - /Users/gechen/Downloads/AY20252-6106-main/charity-project/node_modules/ganache/node_modules/@trufflesuite/uws-js-unofficial/src/uws.js
+# - /Users/gechen/Downloads/AY20252-6106-main/charity-project/node_modules/ganache/dist/node/core.js
+# Falling back to a NodeJS implementation; performance may be degraded.
+# Subtest: CharityHub financial and security integration
+    # Subtest: constructor seeds three demo campaigns and immutable owner
+    ok 1 - constructor seeds three demo campaigns and immutable owner
+      ---
+      duration_ms: 143.8415
+      type: 'test'
+      ...
+    # Subtest: donation records exact wei, donor accounting and public event
+    ok 2 - donation records exact wei, donor accounting and public event
+      ---
+      duration_ms: 256.330291
+      type: 'test'
+      ...
+    # Subtest: zero, excessive and unknown-campaign donations revert
+    ok 3 - zero, excessive and unknown-campaign donations revert
+      ---
+      duration_ms: 97.946333
+      type: 'test'
+      ...
+    # Subtest: owner-only campaign creation and pause; validates all parameters
+    ok 4 - owner-only campaign creation and pause; validates all parameters
+      ---
+      duration_ms: 218.418708
+      type: 'test'
+      ...
+    # Subtest: paused donations blocked; withdrawals remain possible
+    ok 5 - paused donations blocked; withdrawals remain possible
+      ---
+      duration_ms: 520.625583
+      type: 'test'
+      ...
+    # Subtest: deadline blocks new donations but preserves beneficiary withdrawal
+    ok 6 - deadline blocks new donations but preserves beneficiary withdrawal
+      ---
+      duration_ms: 374.729375
+      type: 'test'
+      ...
+    # Subtest: only beneficiary withdraws; administrator cannot take another campaign balance
+    ok 7 - only beneficiary withdraws; administrator cannot take another campaign balance
+      ---
+      duration_ms: 411.313167
+      type: 'test'
+      ...
+    # Subtest: goal is a target; overfunding and subsequent donations after payout allowed
+    ok 8 - goal is a target; overfunding and subsequent donations after payout allowed
+      ---
+      duration_ms: 608.087125
+      type: 'test'
+      ...
+    # Subtest: direct ETH transfer and unknown selector rejected
+    ok 9 - direct ETH transfer and unknown selector rejected
+      ---
+      duration_ms: 81.446625
+      type: 'test'
+      ...
+    # Subtest: global and personal reverse history paginate without duplicate records
+    ok 10 - global and personal reverse history paginate without duplicate records
+      ---
+      duration_ms: 519.123375
+      type: 'test'
+      ...
+    # Subtest: reentrant beneficiary cannot withdraw twice
+    ok 11 - reentrant beneficiary cannot withdraw twice
+      ---
+      duration_ms: 398.833875
+      type: 'test'
+      ...
+    # Subtest: reverting beneficiary rolls back balance and history changes
+    ok 12 - reverting beneficiary rolls back balance and history changes
+      ---
+      duration_ms: 293.335917
+      type: 'test'
+      ...
+    1..12
+ok 1 - CharityHub financial and security integration
+  ---
+  duration_ms: 3927.830583
+  type: 'test'
+  ...
+# Subtest: local UI controller: connect, validate, donate, create, withdraw, reject and recover receipt
+ok 2 - local UI controller: connect, validate, donate, create, withdraw, reject and recover receipt # SKIP
+  ---
+  duration_ms: 0.287125
+  type: 'test'
+  ...
+1..2
+# tests 14
+# suites 0
+# pass 13
+# fail 0
+# cancelled 0
+# skipped 1
+# todo 0
+# duration_ms 5186.227542

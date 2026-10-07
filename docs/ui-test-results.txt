@@ -1,0 +1,20 @@
+
+> common-good-charity-dapp@1.0.0 test:ui
+> node --test tests/ui.test.mjs
+
+TAP version 13
+# Subtest: local UI controller: connect, validate, donate, create, withdraw, reject and recover receipt
+ok 1 - local UI controller: connect, validate, donate, create, withdraw, reject and recover receipt
+  ---
+  duration_ms: 1735.05425
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2085.565208
